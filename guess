@@ -1,0 +1,9 @@
+#!/usr/bin/ruby
+require_relative './guesser.rb'
+play = Guesser.new()
+loop do
+    print "Enter guess: "
+    message =  play.guess?(gets.strip)
+    puts message
+    break if (play.get_guess == play.secret?)
+end

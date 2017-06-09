@@ -1,11 +1,30 @@
 <html>
-    <head></head>
-    <body>
-        <p>Can you guess my secret number?</p>
-        <form>
-            <input type="text" name="guess" />
-            <input type="submit" value="Guess!" />
-        </form>
-        <p>Your guess is <%= message %></p>
-    </body>
+<head>
+<style>
+.guess_box {
+  position: relative;
+  background: <%= bgcolor %>;
+  top: 100px;
+  width: 400px;
+  height: 150px;
+  margin: auto;
+  text-align: center;
+}
+p {
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+  <div class = "guess_box">
+    <p>Can you guess my secret number?</p>
+    <form>
+      <input type="text" name="guess" />
+      <input type="submit" value="Guess!" />
+    </form>
+    <p>Your guess is <%= message %></p>
+  </div>
+</body>
 </html>
