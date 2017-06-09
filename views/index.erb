@@ -12,19 +12,19 @@
 }
 p {
   margin: auto;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
 }
 </style>
 </head>
 <body>
   <div class = "guess_box">
-    <p>Can you guess my secret number?</p>
+    <p>Can you guess my number in <%=chances%> chances?</p>
     <form>
-      <input type="text" name="guess" />
+      <input type="text" name="guess" value=<%= guess %> />
       <input type="submit" value="Guess!" />
     </form>
-    <p>Your guess is <%= message %></p>
+    <p><%= message %></p>
   </div>
 </body>
 </html>
