@@ -7,5 +7,5 @@ end
 
 secret = secret_number
 get '/' do
-    "The SECRET number is #{secret}\n"
+    erb :index, :locals => {:secret => secret}
 end
