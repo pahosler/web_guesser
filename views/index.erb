@@ -1,6 +1,11 @@
 <html>
     <head></head>
     <body>
-        <p>The secret number is <%= secret %></p>
+        <p>Can you guess my secret number?</p>
+        <form>
+            <input type="text" name="guess" />
+            <input type="submit" value="Guess!" />
+        </form>
+        <p>Your guess is <%= message %></p>
     </body>
 </html>
