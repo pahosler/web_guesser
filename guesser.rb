@@ -1,6 +1,6 @@
 class Guesser
     @@guess_num = 0
-    @@secret_number = rand(100)
+    @@secret_number = rand(99)+1
 
     def initialize(guess=nil,chances=5,color='')
         @guess = guess
@@ -14,26 +14,30 @@ class Guesser
     end
 
     def check_guess
-        # @guess = guess.to_i
-          if @guess > @@secret_number + 5
+          if (@guess == nil || @guess == 0)
+            @color = ''
+            @message = "Please guess a number"
+            @chances = 6
+            @@secret_number = rand(99)+1
+          elsif @guess > @@secret_number + 5
               @color = "red"
               @message = "Way too high!"
-            elsif @guess > @@secret_number
-              @color = "yellow"
-              @message = "Too high!"
-            elsif @guess < @@secret_number - 5
-              @color = "blue"
-              @message = "Way too low!"
-            elsif @guess < @@secret_number
-              @color = "light blue"
-              @message = "Too Low!"
-            else
-              @color = "green"
-              @message = "CORRECT! The secret Number is #{@guess}<br> Try Again"
-              @@secret_number = rand(100)
-              @chances = 6
-            end
-            @chances -= 1
+          elsif @guess > @@secret_number
+            @color = "yellow"
+            @message = "Too high!"
+          elsif @guess < @@secret_number - 5
+            @color = "blue"
+            @message = "Way too low!"
+          elsif @guess < @@secret_number
+            @color = "LightBlue"
+            @message = "Too Low!"
+          else
+            @color = "green"
+            @message = "CORRECT! The secret Number is #{@guess}<br> Try Again"
+            @@secret_number = rand(99)+1
+            @chances = 6
+          end
+          @chances -= 1
 
           if (@chances <= 0 && @color != "green")
             @color = "orange"
@@ -65,7 +69,8 @@ class Guesser
     end
 
     def get_chances
-      @chances
+      tries = (@chances > 1) ? "tries" : "try"
+      "#{@chances} #{tries}"
     end
 
 end

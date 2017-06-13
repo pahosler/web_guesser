@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require_relative './guesser.rb'
 
-play = Guesser.new(0,5,'')
+play = Guesser.new(nil,5,'')
 set :bind ,'0.0.0.0'
   get '/' do
     play.guess = params["guess"]
